@@ -45,7 +45,7 @@ h1,h2,h3{font-family:'Instrument Serif',serif;font-weight:400;margin:0;letter-sp
 @media (max-width:900px){.nav ul{display:none}}
 
 /* HERO */
-.hero{position:relative;min-height:100svh;color:var(--porcelain);display:flex;align-items:flex-end;overflow:hidden;background:var(--plum)}
+.hero{position:relative;min-height:100svh;padding-top:120px;color:var(--porcelain);display:flex;align-items:flex-end;overflow:hidden;background:var(--plum)}
 .hero-img{position:absolute;inset:0}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 35%;animation:unveil 2.2s cubic-bezier(.2,.7,.2,1) both}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(46,27,36,.82) 0%,rgba(46,27,36,.45) 48%,rgba(46,27,36,.12) 100%),linear-gradient(0deg,rgba(46,27,36,.6),transparent 45%)}
@@ -133,6 +133,7 @@ legend{font-family:'Instrument Serif',serif;font-size:clamp(28px,3vw,40px);line-
 .result p{margin:0 0 28px;color:var(--taupe)}
 .result .row{display:flex;flex-wrap:wrap;gap:12px}
 .back{all:unset;cursor:pointer;margin-top:auto;padding-top:24px;font-size:14px;color:var(--taupe);text-decoration:underline;text-underline-offset:4px;align-self:flex-start}
+.back[hidden]{display:none}
 @media (max-width:900px){.quiz-intro,.quiz-steps{grid-column:1 / -1}.quiz-steps{min-height:0}}
 
 /* SPACE */
@@ -174,6 +175,23 @@ details p{margin:0 0 26px;color:var(--taupe);max-width:620px}
 footer{padding:32px 0 48px;font-size:14px;color:var(--taupe)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
 
+/* MOBILE: grades de 12 colunas viram 1 coluna */
+@media (max-width:900px){
+  .doctor .wrap,.quiz-box,.faq .wrap,.final-in{grid-template-columns:minmax(0,1fr)}
+  .doctor .wrap > *,.quiz-box > *,.faq .wrap > *,.final-in > *{grid-column:1 / -1}
+}
+@media (max-width:600px){
+  .nav .btn{min-height:44px;padding:0 18px;font-size:14px}
+  .hero h1{font-size:clamp(46px,13vw,64px)}
+  .hero-grid{gap:28px}
+  .card{padding:22px}
+  .quiz-box{gap:28px;border-radius:24px}
+  .treat{border-radius:28px 28px 0 0}
+  .final-in{border-radius:28px;min-height:0}
+  .final .txt{padding-top:120px}
+  summary{font-size:18px}
+}
+
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s,transform 1s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -198,7 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
   <div class="hero-img"><img src="https://images.unsplash.com/photo-1552693673-1bf958298935?fm=jpg&q=75&w=2400&auto=format&fit=crop" alt="Paciente recebendo tratamento facial na clínica"></div>
   <div class="wrap hero-grid">
     <div>
-      <h1><span class="ln"><span>A pele</span></span><span class="ln"><span>no seu melhor</span></span><span class="ln"><span>momento.</span></span></h1>
+      <h1><span class="ln"><span>A pele </span></span><span class="ln"><span>no seu melhor </span></span><span class="ln"><span>momento.</span></span></h1>
       <p class="hero-lead">Estética avançada em Belo Horizonte, com tecnologia de ponta e um plano feito para a sua pele, não para a média.</p>
     </div>
     <aside class="card" aria-label="Agendar avaliação">
